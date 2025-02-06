@@ -5,10 +5,11 @@ resource "aws_api_gateway_resource" "resource" {
 }
 
 module "cors" {
-  source      = "../api_gateway_cors"
+  source      = "VincenzoTumbiolo/vtech-api-gateway-cors/aws"
+  version     = "0.0.0"
   rest_api_id = var.api_gateway_rest_api_id
   resource_id = aws_api_gateway_resource.resource.id
-  options = var.options
+  options     = var.options
 }
 
 resource "aws_api_gateway_account" "account" {
