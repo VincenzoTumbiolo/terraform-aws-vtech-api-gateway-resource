@@ -4,14 +4,6 @@ resource "aws_api_gateway_resource" "resource" {
   path_part   = var.path_part
 }
 
-module "cors" {
-  source      = "VincenzoTumbiolo/vtech-api-gateway-cors/aws"
-  version     = "0.0.0"
-  rest_api_id = var.api_gateway_rest_api_id
-  resource_id = aws_api_gateway_resource.resource.id
-  options     = var.options
-}
-
 resource "aws_api_gateway_account" "account" {
   cloudwatch_role_arn = var.aws_iam_role_cloudwatch_arn
 }
